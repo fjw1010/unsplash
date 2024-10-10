@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import Nav from "../Nav/Nav";
 
 // TODO: 1. react-router-dom 설정
 // TODO: 2. 로고 여백 16
@@ -19,6 +20,7 @@ function Header() {
           <img src="/icons/menu.png" alt="메뉴" />
         </StButton>
       </StNav>
+      <Nav></Nav>
     </StHeader>
   );
 }
