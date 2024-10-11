@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Nav from "../Nav/Nav";
+import logoSvg from "/logo/logo.svg";
+import menuSvg from "/icons/menu.svg";
+import searchSvg from "/search-icon/search.svg";
 
 // TODO: 1. react-router-dom 설정
 // TODO: 2. 로고 여백 16
@@ -9,24 +12,24 @@ function Header() {
     <StHeader>
       <StNav>
         <StLink to="/">
-          <img src="/logo/logo.svg" alt="" />
+          <img src={logoSvg} alt="" />
         </StLink>
         <StForm>
           <StInput type="text" placeholder="사진과 일러스트 검색" />
         </StForm>
-        <a href="#">탐색</a>
-        <a href="#">로그인</a>
+        <StLink href="#">탐색</StLink>
+        <StLink href="#">로그인</StLink>
         <StButton>
-          <img src="/icons/menu.png" alt="메뉴" />
+          <img src={menuSvg} alt="메뉴" />
         </StButton>
       </StNav>
-      <Nav></Nav>
+      <Nav />
     </StHeader>
   );
 }
 
 const StHeader = styled.header`
-  padding: 11px 20px;
+  font-size: 14px;
 `;
 
 const StNav = styled.nav`
@@ -34,6 +37,7 @@ const StNav = styled.nav`
   align-items: center;
   text-align: center;
   gap: 16px;
+  padding: 11px 20px;
 `;
 
 const StForm = styled.form`
@@ -42,15 +46,19 @@ const StForm = styled.form`
 
 const StInput = styled.input`
   border: none;
-  background-color: #f1f1f1;
+  background: #f0f0f0 url(${searchSvg}) no-repeat left 12px center/ 20px auto;
+  color: #111111;
+  border-radius: 30px;
+  padding: 10px 10px 10px 45px;
+  width: 100%;
+  outline: none;
+  border: 1px solid transparent;
+  font-weight: 400;
+
   &:hover {
     background-color: #e4e2e2;
     transition: background-color 2s ease-in-out;
   }
-  border-radius: 30px;
-  padding: 10px;
-  width: 100%;
-  outline: none;
 
   &:focus {
     background-color: #ffffff;
@@ -65,10 +73,16 @@ const StButton = styled.button`
   border: none;
   /* color: white; */
   background-color: transparent;
-  width: 24px;
-  height: 24px;
+  width: 46px;
 `;
 
-const StLink = styled(Link)``;
+const StLink = styled(Link)`
+  font-weight: 600;
+  color: #767676;
+
+  &:hover {
+    color: #111111;
+  }
+`;
 
 export default Header;
