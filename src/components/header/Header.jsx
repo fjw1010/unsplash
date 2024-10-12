@@ -1,19 +1,36 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Nav from "../Nav/Nav";
 import logoSvg from "/logo/logo.svg";
 import menuSvg from "/icons/menu.svg";
 import searchSvg from "/search-icon/search.svg";
+import { useState } from "react";
 
 function Header() {
+  const [value, setValue] = useState("");
+  const navigate = useNavigate();
+
+  const handleChange = (event) => {
+    setValue(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault(); // 기본 동작을 제거하는 것
+    navigate(`/search?query=${value}`);
+  };
+
   return (
     <StHeader>
       <StNav>
         <StLink to="/">
-          <img src={logoSvg} alt="" />
+          <img src={logoSvg} alt="logo" />
         </StLink>
-        <StForm>
-          <StInput type="text" placeholder="사진과 일러스트 검색" />
+        <StForm onSubmit={handleSubmit}>
+          <StInput
+            onChange={handleChange}
+            type="text"
+            placeholder="사진과 일러스트 검색"
+          />
         </StForm>
         <StLink href="#">탐색</StLink>
         <StLink href="#">로그인</StLink>
