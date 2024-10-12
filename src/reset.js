@@ -1,6 +1,6 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
-const ResetCSS = createGlobalStyle`
+export const ResetCSS = createGlobalStyle`
   *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -52,5 +52,3 @@ const ResetCSS = createGlobalStyle`
     transition-duration: 0.001ms !important;
   }
 `;
-
-export default ResetCSS;

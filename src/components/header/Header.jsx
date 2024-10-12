@@ -1,52 +1,85 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
+import Nav from "../Nav/Nav";
+import logoSvg from "/logo/logo.svg";
+import menuSvg from "/icons/menu.svg";
+import searchSvg from "/search-icon/search.svg";
 
 function Header() {
   return (
     <StHeader>
       <StNav>
-        <a href="">
-          <img src="/logo/logo.svg" alt="" />
-        </a>
-        <StFrom>
-          <StInput type="text" />
-        </StFrom>
-        <a href="">탐색</a>
-        <a href="">광고</a>
-        <a href="">Unsplash+ 구독</a>
-        <a href="">로그인</a>
-        <a href="">이미지 제출</a>
+        <StLink to="/">
+          <img src={logoSvg} alt="" />
+        </StLink>
+        <StForm>
+          <StInput type="text" placeholder="사진과 일러스트 검색" />
+        </StForm>
+        <StLink href="#">탐색</StLink>
+        <StLink href="#">로그인</StLink>
         <StButton>
-          <img src="/logo/hamburger-menu-icon.svg" alt="" />
+          <img src={menuSvg} alt="메뉴" />
         </StButton>
       </StNav>
+      <Nav />
     </StHeader>
   );
 }
 
-export default Header;
-
 const StHeader = styled.header`
-  display: flex;
-  justify-content: center;
+  font-size: 14px;
 `;
 
 const StNav = styled.nav`
   display: flex;
   align-items: center;
   text-align: center;
-  gap: 100px;
+  gap: 16px;
+  padding: 11px 20px;
 `;
 
-const StFrom = styled.from``;
+const StForm = styled.form`
+  flex-grow: 1;
+`;
 
 const StInput = styled.input`
   border: none;
-  background-color: #e7e7e7;
+  background: #f0f0f0 url(${searchSvg}) no-repeat left 12px center/ 20px auto;
+  color: #111111;
   border-radius: 30px;
-  padding: 10px;
+  padding: 10px 10px 10px 45px;
+  width: 100%;
+  outline: none;
+  border: 1px solid transparent;
+  font-weight: 400;
+
+  &:hover {
+    background-color: #e4e2e2;
+    transition: background-color 2s ease-in-out;
+  }
+
+  &:focus {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+  }
+  &:active {
+    transition: background-color 2s ease-in;
+  }
 `;
 
 const StButton = styled.button`
   border: none;
-  color: white;
+  background-color: transparent;
+  width: 46px;
 `;
+
+const StLink = styled(Link)`
+  font-weight: 600;
+  color: #767676;
+
+  &:hover {
+    color: #111111;
+  }
+`;
+
+export default Header;
