@@ -5,8 +5,6 @@ import logoSvg from "/logo/logo.svg";
 import menuSvg from "/icons/menu.svg";
 import searchSvg from "/search-icon/search.svg";
 
-// TODO: 1. react-router-dom 설정
-// TODO: 2. 로고 여백 16
 function Header() {
   return (
     <StHeader>
@@ -71,7 +69,6 @@ const StInput = styled.input`
 
 const StButton = styled.button`
   border: none;
-  /* color: white; */
   background-color: transparent;
   width: 46px;
 `;

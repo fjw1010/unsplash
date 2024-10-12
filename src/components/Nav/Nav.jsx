@@ -53,7 +53,6 @@ const StCategoriesUl = styled.ul`
   font-size: 14px;
   line-height: 24px;
   color: #767676;
-  /* padding-left: 20px; */
   justify-content: center;
   align-items: center;
   font-weight: 500;
