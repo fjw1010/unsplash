@@ -1,9 +1,16 @@
 import { createBrowserRouter } from "react-router-dom";
-import App from "../App";
+import { SearchPage } from "../pages/Search";
+import Layout from "../components/Layout/Layout";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <Layout />,
+    children: [
+      {
+        path: "search",
+        element: <SearchPage />,
+      },
+    ],
   },
 ]);
