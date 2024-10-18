@@ -11,7 +11,7 @@ function SearchPage() {
   const [ref, inView] = useInView({});
 
   const { data, fetchNextPage, isLoading } = useInfiniteQuery({
-    queryKey: ["infiniteSearch"],
+    queryKey: ["infiniteSearch", search],
     queryFn: ({ pageParam = 1 }) =>
       getSearchPhotos(decodeURIComponent(search), pageParam),
     getNextPageParam: (lastPage, pages) => {
@@ -20,9 +20,11 @@ function SearchPage() {
       }
       return undefined;
     },
+    select: ({ pages }) => {
+      return pages?.flatMap(({ results }) => results);
+    },
   });
 
-  //
   useEffect(() => {
     if (inView) {
       fetchNextPage();
@@ -35,7 +37,7 @@ function SearchPage() {
 
   return (
     <>
-      {data?.results?.map((data) => {
+      {data?.map((data) => {
         return (
           <div key={data.urls.regular}>
             <img src={data.urls.regular} alt="" />
