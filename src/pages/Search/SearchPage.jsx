@@ -8,9 +8,9 @@ import { useEffect } from "react";
 function SearchPage() {
   const location = useLocation();
   const search = location.search.split("?query=")[1];
-  const [ref, inView] = useInView({});
+  const [ref, inView] = useInView();
 
-  const { data, fetchNextPage, isLoading } = useInfiniteQuery({
+  const { data, fetchNextPage, hasNextPage, isLoading } = useInfiniteQuery({
     queryKey: ["infiniteSearch", search],
     queryFn: ({ pageParam = 1 }) =>
       getSearchPhotos(decodeURIComponent(search), pageParam),
@@ -26,7 +26,7 @@ function SearchPage() {
   });
 
   useEffect(() => {
-    if (inView) {
+    if (inView && hasNextPage) {
       fetchNextPage();
     }
   }, [inView, fetchNextPage]);
