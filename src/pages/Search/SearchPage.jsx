@@ -23,18 +23,35 @@ function SearchPage() {
 
   return (
     <>
-      {data?.map((data) => {
-        return (
-          <div key={data.urls.regular}>
-            <img src={data.urls.regular} alt="" />
-          </div>
-        );
-      })}
-      <Div ref={ref} />
+      <StUl>
+        {data?.map((data) => {
+          return (
+            <StLi key={data.urls.regular}>
+              <Images src={data.urls.regular} alt="" />
+            </StLi>
+          );
+        })}
+      </StUl>
+      <div ref={ref} />
     </>
   );
 }
 
-const Div = styled.div``;
+const StUl = styled.ul`
+  padding: 0 20px;
+  display: flex;
+  /* justify-content: center; */
+  flex-wrap: wrap;
+  flex-shrink: 0;
+  gap: 8px;
+`;
+const StLi = styled.li`
+  width: calc(33.3333% - 5.3333px);
+`;
+
+const Images = styled.img`
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+`;
 
 export default SearchPage;
