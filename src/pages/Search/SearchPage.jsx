@@ -40,7 +40,6 @@ function SearchPage() {
 const StUl = styled.ul`
   padding: 0 20px;
   display: flex;
-  /* justify-content: center; */
   flex-wrap: wrap;
   flex-shrink: 0;
   gap: 8px;
