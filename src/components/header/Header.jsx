@@ -15,7 +15,7 @@ function Header() {
   };
 
   const handleSubmit = (event) => {
-    event.preventDefault(); // 기본 동작을 제거하는 것
+    event.preventDefault();
     navigate(`/search?query=${value}`);
   };
 
@@ -34,9 +34,9 @@ function Header() {
         </StForm>
         <StLink href="#">탐색</StLink>
         <StLink href="#">로그인</StLink>
-        <StButton>
+        <StHeaderButton>
           <img src={menuSvg} alt="메뉴" />
-        </StButton>
+        </StHeaderButton>
       </StNav>
       <Nav />
     </StHeader>
@@ -45,6 +45,13 @@ function Header() {
 
 const StHeader = styled.header`
   font-size: 14px;
+  background-color: #fff;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  width: 100%;
 `;
 
 const StNav = styled.nav`
@@ -84,7 +91,7 @@ const StInput = styled.input`
   }
 `;
 
-const StButton = styled.button`
+const StHeaderButton = styled.button`
   border: none;
   background-color: transparent;
   width: 46px;

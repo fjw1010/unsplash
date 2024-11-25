@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import useInfiniteSearchPhotos from "../../hooks/useInfiniteSearchPhotos";
+import CardIconsButton from "../../components/Button/CardHover/CardIconsButton";
 
 function SearchPage() {
   const location = useLocation();
@@ -28,6 +29,7 @@ function SearchPage() {
           return (
             <StLi key={data.urls.regular}>
               <Images src={data.urls.regular} alt="" />
+              <CardIconsButton />
             </StLi>
           );
         })}
@@ -40,12 +42,12 @@ function SearchPage() {
 const StUl = styled.ul`
   padding: 0 20px;
   display: flex;
-  /* justify-content: center; */
   flex-wrap: wrap;
   flex-shrink: 0;
   gap: 8px;
 `;
 const StLi = styled.li`
+  position: relative;
   width: calc(33.3333% - 5.3333px);
 `;
 
