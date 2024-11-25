@@ -34,9 +34,9 @@ function Header() {
         </StForm>
         <StLink href="#">탐색</StLink>
         <StLink href="#">로그인</StLink>
-        <StButton>
+        <StHeaderButton>
           <img src={menuSvg} alt="메뉴" />
-        </StButton>
+        </StHeaderButton>
       </StNav>
       <Nav />
     </StHeader>
@@ -91,7 +91,7 @@ const StInput = styled.input`
   }
 `;
 
-const StButton = styled.button`
+const StHeaderButton = styled.button`
   border: none;
   background-color: transparent;
   width: 46px;
